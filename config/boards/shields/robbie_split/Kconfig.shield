@@ -1,0 +1,5 @@
+config SHIELD_ROBBIE_SPLIT_LEFT
+    def_bool $(shields_list_contains,robbie_split_left)
+
+config SHIELD_ROBBIE_SPLIT_RIGHT
+    def_bool $(shields_list_contains,robbie_split_right)

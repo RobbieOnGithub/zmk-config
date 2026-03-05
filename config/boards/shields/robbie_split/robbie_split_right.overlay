@@ -1,0 +1,49 @@
+/*
+ * Robbie Split - Right Half
+ *
+ * Rows (active low with pull-down):
+ *   Row 1 = P1.13 (pin 113)
+ *   Row 2 = P1.15 (pin 115)
+ *   Row 3 = P0.02 (pin 002)
+ *   Row 4 = P0.29 (pin 029)
+ *   Row 5 = P0.31 (pin 031)
+ *
+ * Cols (active high, drive signal):
+ *   Col 1 = P1.11 (pin 111)
+ *   Col 2 = P0.09 (pin 009)
+ *   Col 3 = P0.11 (pin 011)
+ *   Col 4 = P1.00 (pin 100)
+ *   Col 5 = P0.24 (pin 024)
+ *   Col 6 = P0.22 (pin 022)
+ */
+
+#include "robbie_split.dtsi"
+
+&default_transform {
+    col-offset = <6>;
+};
+
+/ {
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+
+        row-gpios
+            = <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+
+        col-gpios
+            = <&gpio1 11 GPIO_ACTIVE_HIGH>
+            , <&gpio0 9  GPIO_ACTIVE_HIGH>
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>
+            , <&gpio1 0  GPIO_ACTIVE_HIGH>
+            , <&gpio0 24 GPIO_ACTIVE_HIGH>
+            , <&gpio0 22 GPIO_ACTIVE_HIGH>
+            ;
+    };
+};
