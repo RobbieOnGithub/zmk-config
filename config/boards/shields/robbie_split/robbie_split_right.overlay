@@ -8,13 +8,13 @@
  *   Row 4 = P0.29 (pin 029)
  *   Row 5 = P0.31 (pin 031)
  *
- * Cols (active high, drive signal):
- *   Col 1 = P1.11 (pin 111)
- *   Col 2 = P0.09 (pin 009)
- *   Col 3 = P0.11 (pin 011)
- *   Col 4 = P1.00 (pin 100)
- *   Col 5 = P0.24 (pin 024)
+ * Cols (reversed to fix mirror flip):
  *   Col 6 = P0.22 (pin 022)
+ *   Col 5 = P0.24 (pin 024)
+ *   Col 4 = P1.00 (pin 100)
+ *   Col 3 = P0.11 (pin 011)
+ *   Col 2 = P0.09 (pin 009)
+ *   Col 1 = P1.11 (pin 111)
  */
 
 #include "robbie_split.dtsi"
@@ -38,12 +38,12 @@
             ;
 
         col-gpios
-            = <&gpio1 11 GPIO_ACTIVE_HIGH>
-            , <&gpio0 9  GPIO_ACTIVE_HIGH>
-            , <&gpio0 11 GPIO_ACTIVE_HIGH>
-            , <&gpio1 0  GPIO_ACTIVE_HIGH>
+            = <&gpio0 22 GPIO_ACTIVE_HIGH>
             , <&gpio0 24 GPIO_ACTIVE_HIGH>
-            , <&gpio0 22 GPIO_ACTIVE_HIGH>
+            , <&gpio1 0  GPIO_ACTIVE_HIGH>
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>
+            , <&gpio0 9  GPIO_ACTIVE_HIGH>
+            , <&gpio1 11 GPIO_ACTIVE_HIGH>
             ;
     };
 };
